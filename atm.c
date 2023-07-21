@@ -1,5 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<stdbool.h>
+
 int main()
 
 {
@@ -46,15 +48,27 @@ int main()
 
         break;
     case 3:
-    printf("Enter the amount you would like to withdraw : ");
+    
+    while (true) {
+        printf("Enter the amount you would like to withdraw : ");
         scanf("%lf",&newAmount);
 
+        if (newAmount < 0 )
+        {
+           printf("Invalid Amount, Try again!");
+        }
+        else
+        {
+            break;
+        }
+        
+    }
         newAmount = balance - newAmount ;
-        printf("Your new account balance : %.2lf",newAmount);
-
-        break;
+        printf("Your new account balance : %.2lf \n",newAmount);
+    
+    break;
     case 4:
-        exit(0);
+        break;
     }
 
     printf("Do you want to continue again?\n");
